@@ -5,4 +5,7 @@
 3. Install karabiner, slate window manager
 4. `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 5. `brew install thefuck`
+6. `bash ~/Downloads/Anaconda2-4.0.0-MacOSX-x86_64.sh`
+7. `pip install powerline-status`
+
 	
