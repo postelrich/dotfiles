@@ -54,8 +54,7 @@ plugins=(git common-aliases brew npm pip)
 # User configuration
 
 export PATH="/Users/rpostelnik/anaconda/bin:/Users/rpostelnik/q/m32:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
+export EDITOR="vim"
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
