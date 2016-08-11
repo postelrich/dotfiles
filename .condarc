@@ -1,0 +1,6 @@
+channels:
+    - rpostelnik
+    - kwmsmith
+    - data-portal
+    - data-portal/channel/dev
+    - defaults
