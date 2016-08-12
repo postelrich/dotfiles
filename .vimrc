@@ -21,6 +21,9 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'ap/vim-buftabline'
+Bundle 'tpope/vim-surround'
+"Bundle 'terryma/vim-multiple-cursors'
+Bundle 'haya14busa/incsearch.vim'
 " Bundle 'vim-scripts/indentpython.vim'
 " Bundle 'sheerun/vim-polyglot'
 
@@ -153,3 +156,6 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
