@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/rpostelnik/.oh-my-zsh
+export ZSH=/Users/cpp974/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -53,7 +53,7 @@ plugins=(git common-aliases brew npm pip)
 
 # User configuration
 
-export PATH="/Users/rpostelnik/anaconda/bin:/Users/rpostelnik/q/m32:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/Users/cpp974/miniconda2/bin:/Users/cpp974/q/m32:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export EDITOR="vim"
 source $ZSH/oh-my-zsh.sh
 
@@ -84,5 +84,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias on="source activate"
 alias off="source deactivate"
+alias vim="nvim"
 eval "$(thefuck --alias)"
 . ~/z.sh
+. ~/miniconda2/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
