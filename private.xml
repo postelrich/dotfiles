@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<root>
+	<!-- Application Identifiers -->
+	<appdef>
+		<appname>IPQ</appname>
+		<equal>org.python.python</equal>
+	</appdef>
+
+	<!-- Enables Hyper modifier key -->
+	<item>
+		<name>Hyper Tab</name>
+		<appendix>(Tab to Hyper (ctrl+shift+cmd+opt) + Tab Only, send Tab)</appendix>
+		<identifier>private.hyper_tab</identifier>
+		<not>IPQ</not>
+		<autogen>
+			--KeyOverlaidModifier--
+			KeyCode::TAB,
+			KeyCode::COMMAND_L,
+			ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+			KeyCode::TAB
+		</autogen>
+	</item>
+</root>
