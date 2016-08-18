@@ -7,5 +7,7 @@
 5. `brew install thefuck`
 6. `bash ~/Downloads/Anaconda2-4.0.0-MacOSX-x86_64.sh`
 7. `pip install powerline-status`
+8. Configure powerline and zsh: https://gist.github.com/wm/4750511
+9. Install Bundle for vim
 
 	
