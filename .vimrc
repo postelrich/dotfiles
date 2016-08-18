@@ -14,7 +14,8 @@ call vundle#begin()
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+"Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'itchyny/lightline.vim'
 Bundle 'klen/python-mode'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -119,7 +120,7 @@ nnoremap m :call ToggleMouse()<CR>
 " ]]            Jump on next class or function (normal, visual, operator modes)
 " [M            Jump on previous class or method (normal, visual, operator modes)
 " ]M            Jump on next class or method (normal, visual, operator modes)
-let g:pymode_rope = 0
+let g:pymode_rope = 1
 
 " Documentation
 let g:pymode_doc = 1
