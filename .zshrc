@@ -86,5 +86,17 @@ alias on="source activate"
 alias off="source deactivate"
 alias vim="nvim"
 eval "$(thefuck --alias)"
+
+altcd () {
+    last=${@: -1}
+    dir=`echo $last | rev | cut -d\/ -f1 | rev`
+    out=
+    [[ -z $dir ]] && dir=`echo $last | rev | cut -d\/ -f2 | rev`
+    [[ ! -z $dir ]] && out="next time try: z ${dir}"
+    cd $@ &&  echo $out
+}
+alias cd="altcd"
+
 . ~/z.sh
 . ~/miniconda2/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+. ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

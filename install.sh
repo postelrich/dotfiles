@@ -13,7 +13,7 @@ if [ -z "$home"]; then
 fi
 dir=$home/dotfiles                    # dotfiles directory
 olddir=$home/dotfiles_old             # old dotfiles backup directory
-files=".bashrc .vimrc .vim .zshrc .condarc .slate"    # list of files/folders to symlink in homedir
+files=".bashrc .vimrc .zshrc .condarc .slate"    # list of files/folders to symlink in homedir
 
 ##########
 

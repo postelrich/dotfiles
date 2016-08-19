@@ -65,24 +65,26 @@ map <F2> :NERDTreeToggle<CR>
 " Set tab width
 set visualbell
 set autoindent
+set shiftwidth=4
+set tabstop=4
+set expandtab
 
 au BufNewFile,BufRead *.py
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
     \ set tabstop=4 |
     \ set textwidth=90 |
-    \ set expandtab |
     \ set encoding=utf-8 |
 
 au BufNewFile,BufRead *.{js,jsx,html,css}
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
     \ set tabstop=2 |
-    \ set expandtab |
 
 " Syntax highlighting
 syntax on
 set number
+nmap <C-l> :set number!<CR>
 set hlsearch
 map ; :
 noremap ;; ;
@@ -94,8 +96,44 @@ highlight CursorColumn ctermbg=black
 highlight CursorLineNr ctermfg=white ctermbg=darkred
 highlight Search ctermfg=lightgreen
 
+" http://vim.wikia.com/wiki/Move_cursor_by_display_lines_when_wrapping
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+vnoremap <silent> j gj
+vnoremap <silent> k gk
+
+" Minimal number of screen lines to keep above and below the cursor.
+" This keeps the cursor always in the vertical middle of the screen.
+set scrolloff=999
+
+" Ignore case while searching
+set ignorecase
+
+" Split new window below current one
+set splitbelow
+
+" Say a message
+function! Say(msg)
+	 echohl IncSearch
+	 echo a:msg
+	 echohl None
+endfunction
+
+" Copy full buffer to OS clipboard.
+function! CopyAll()
+    normal mzggVG"+y'z
+    call Say("Copied.")
+endfunction
+command A call CopyAll()
+
+" Delete buffer contents and Paste from OS clipboard.
+function! PasteFromClipboard()
+    normal ggVGd"+p1G
+    call Say("Pasted.")
+endfunction
+command B call PasteFromClipboard()
+
 " Mouse toggle
-set mouse=a
 function! ToggleMouse()
     "check if mouse is enabled
     if &mouse == 'a'
@@ -105,6 +143,7 @@ function! ToggleMouse()
     endif
 endfunc
 nnoremap m :call ToggleMouse()<CR>
+set mouse=a
 
 
 " Python-mode
