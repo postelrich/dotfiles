@@ -25,6 +25,7 @@ Bundle 'ap/vim-buftabline'
 Bundle 'tpope/vim-surround'
 "Bundle 'terryma/vim-multiple-cursors'
 Bundle 'haya14busa/incsearch.vim'
+Bundle 'majutsushi/tagbar'
 " Bundle 'vim-scripts/indentpython.vim'
 " Bundle 'sheerun/vim-polyglot'
 
@@ -74,7 +75,7 @@ au BufNewFile,BufRead *.py
     \ set shiftwidth=4 |
     \ set tabstop=4 |
     \ set textwidth=90 |
-    \ set encoding=utf-8 |
+    "\ set encoding=utf-8 |
 
 au BufNewFile,BufRead *.{js,jsx,html,css}
     \ set softtabstop=2 |
@@ -199,3 +200,4 @@ noremap <Right> <NOP>
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+nmap <F3> :TagbarToggle<CR>

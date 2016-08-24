@@ -13,5 +13,6 @@
 11. Install Bundle for vim
 12. Install Seil to map Caps Lock to Escape key with value 53.  In Keyboard -> Modifier Keys -> Set CapsLock/Escape No Action.
 13. `cd .oh-my-zsh && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git`
+14. `brew install ctags`
 
 	
