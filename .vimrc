@@ -26,6 +26,7 @@ Bundle 'tpope/vim-surround'
 "Bundle 'terryma/vim-multiple-cursors'
 Bundle 'haya14busa/incsearch.vim'
 Bundle 'majutsushi/tagbar'
+Bundle 'blueshirts/darcula'
 " Bundle 'vim-scripts/indentpython.vim'
 " Bundle 'sheerun/vim-polyglot'
 
@@ -84,6 +85,7 @@ au BufNewFile,BufRead *.{js,jsx,html,css}
 
 " Syntax highlighting
 syntax on
+colorscheme darcula
 set number
 nmap <C-l> :set number!<CR>
 set hlsearch
