@@ -12,11 +12,13 @@ fF{char} to next/prev occurrence of char
 aA edit after cursor (at end of line)
 iI edit before cursor (before first char)
 oO insert line below (above)
+ciw delete word and open edit mode
 
 ## delete
 x delete character under cursor
 X delete character before cursor
 dd delete line
+di{char} delete within braces
 
 # find replace
 :%s/old/new/g(c) replace all occurrences (confirm each)
@@ -41,3 +43,6 @@ s vertical split
 up/down select file
 <Enter> open in current buffer
 <Ctrl>+t open in new tab
+
+## TagBar
+<F3> Toggle tagbar
