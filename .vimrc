@@ -23,6 +23,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'ap/vim-buftabline'
 Bundle 'tpope/vim-surround'
+Bundle 'flazz/vim-colorschemes'
 "Bundle 'terryma/vim-multiple-cursors'
 Bundle 'haya14busa/incsearch.vim'
 " Bundle 'vim-scripts/indentpython.vim'
@@ -68,13 +69,13 @@ set autoindent
 set shiftwidth=4
 set tabstop=4
 set expandtab
+set showcmd
 
 au BufNewFile,BufRead *.py
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
     \ set tabstop=4 |
     \ set textwidth=90 |
-    \ set encoding=utf-8 |
 
 au BufNewFile,BufRead *.{js,jsx,html,css}
     \ set softtabstop=2 |
@@ -83,6 +84,7 @@ au BufNewFile,BufRead *.{js,jsx,html,css}
 
 " Syntax highlighting
 syntax on
+colorscheme candypaper
 set number
 nmap <C-l> :set number!<CR>
 set hlsearch
@@ -101,10 +103,6 @@ nnoremap <silent> j gj
 nnoremap <silent> k gk
 vnoremap <silent> j gj
 vnoremap <silent> k gk
-
-" Minimal number of screen lines to keep above and below the cursor.
-" This keeps the cursor always in the vertical middle of the screen.
-set scrolloff=999
 
 " Ignore case while searching
 set ignorecase
@@ -159,7 +157,7 @@ set mouse=a
 " ]]            Jump on next class or function (normal, visual, operator modes)
 " [M            Jump on previous class or method (normal, visual, operator modes)
 " ]M            Jump on next class or method (normal, visual, operator modes)
-let g:pymode_rope = 1
+let g:pymode_rope = 0
 
 " Documentation
 let g:pymode_doc = 1
