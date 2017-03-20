@@ -24,6 +24,8 @@ Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'ap/vim-buftabline'
 Bundle 'tpope/vim-surround'
 Bundle 'flazz/vim-colorschemes'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 "Bundle 'terryma/vim-multiple-cursors'
 Bundle 'haya14busa/incsearch.vim'
 " Bundle 'vim-scripts/indentpython.vim'
@@ -57,7 +59,9 @@ filetype plugin indent on    " required
 set backspace=indent,eol,start
 
 " Required for Powerline
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline
+let g:airline_powerline_fonts=1
+let g:airline_theme='bubblegum'
 set laststatus=2
 
 " Toggle NerdTree
@@ -70,6 +74,7 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 set showcmd
+set encoding=utf-8
 
 au BufNewFile,BufRead *.py
     \ set softtabstop=4 |
@@ -151,7 +156,7 @@ set mouse=a
 " <Ctrl-Space>  Rope autocomplete
 " <Ctrl-c>g     Rope goto definition
 " <Ctrl-c>d     Rope show documentation
-" <Ctrl-c>f     Rope find occurrences
+" <Ctrl-c>f     Rope find occurrencee
 " <Leader>b     Set, unset breakpoint (g:pymode_breakpoint enabled)
 " [[            Jump on previous class or function (normal, visual, operator modes)
 " ]]            Jump on next class or function (normal, visual, operator modes)
@@ -189,6 +194,10 @@ let NERDTreeIgnore = ['\.pyc$']
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(pyc|so|swp)$'
+  \ }
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
