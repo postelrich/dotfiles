@@ -98,6 +98,7 @@ noremap ;; ;
 nnoremap <S-tab> :tabprevious<CR>
 nnoremap <tab> :tabnext<CR>
 nnoremap <C-t> :tabnew<CR>
+nnoremap <leader>tl ^c0<bs> <Esc>
 set cursorline
 highlight CursorColumn ctermbg=black
 highlight CursorLineNr ctermfg=white ctermbg=darkred

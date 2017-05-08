@@ -49,7 +49,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git common-aliases brew npm pip)
+plugins=(git common-aliases brew npm) # pip)
 
 # User configuration
 
@@ -85,18 +85,31 @@ source $ZSH/oh-my-zsh.sh
 alias on="source activate"
 alias off="source deactivate"
 alias vim="nvim"
+alias ll="ls -al"
+alias git-prune="git branch --merged master | grep -v '^ *master$' | xargs git branch -d"
 eval "$(thefuck --alias)"
 
-altcd () {
-    last=${@: -1}
-    dir=`echo $last | rev | cut -d\/ -f1 | rev`
-    out=
-    [[ -z $dir ]] && dir=`echo $last | rev | cut -d\/ -f2 | rev`
-    [[ ! -z $dir ]] && out="next time try: z ${dir}"
-    cd $@ &&  echo $out
-}
-alias cd="altcd"
-
 . ~/z.sh
-. ~/miniconda2/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+. ~/miniconda2/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 . ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+CAPONE_USER="cpp974"
+if [ "$USER" = "$CAPONE_USER" ]; then # Only do this on the Cap One laptop
+	export USER_UPPER=`echo $USER | tr '[:lower:]' '[:upper:]'`
+
+	# Deliberately pull in the SSO password variable from the helper
+	# script. Note that the helper script itself does _not_ have a `.sh`
+	# extension, so it should not be included in the normal run of including
+	# OS-specific scripts
+	source "$HOME/.config/nvim/osx/get_sso_password_from_keychain"
+
+	export http_proxy="http://$USER:$SSO_PASS@entproxy.kdc.capitalone.com:8099/"
+	export https_proxy="https://$USER:$SSO_PASS@entproxy.kdc.capitalone.com:8099/"
+	# export https_proxy=$http_proxy
+	export HTTP_PROXY=$http_proxy
+	export HTTPS_PROXY=$https_proxy
+	export no_proxy="localhost,127.0.0.1,10.0.2.2,172.16.0.0/12,192.168.0.0/16,slack.com"
+	export NO_PROXY=$no_proxy
+fi
+
+

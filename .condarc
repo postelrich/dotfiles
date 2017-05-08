@@ -1,6 +1,8 @@
+changeps1: false
+channel_alias: http://anaconda.cloud.capitalone.com/conda
 channels:
-    - rpostelnik
-    - kwmsmith
-    - data-portal
-    - data-portal/channel/dev
-    - defaults
+  - creditflow
+  - bokeh
+  - conda-forge
+  - blaze
+  - defaults
