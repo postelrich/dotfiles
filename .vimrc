@@ -4,6 +4,8 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+let g:python_host_prog = '/Users/cpp974/miniconda2/bin/python'
+let g:python3_host_prog = '/Users/cpp974/miniconda2/bin/python'
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
@@ -14,22 +16,16 @@ call vundle#begin()
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Bundle 'gmarik/vundle'
-"Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Bundle 'itchyny/lightline.vim'
 Bundle 'klen/python-mode'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'ap/vim-buftabline'
+" Bundle 'ap/vim-buftabline'
 Bundle 'tpope/vim-surround'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
-"Bundle 'terryma/vim-multiple-cursors'
 Bundle 'haya14busa/incsearch.vim'
-" Bundle 'vim-scripts/indentpython.vim'
-" Bundle 'sheerun/vim-polyglot'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -45,15 +41,6 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
-" Highlight character past column
-"augroup vimrc_autocmds
-"    autocmd!
-"    " highlight characters past column 120
-"    autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
-"    autocmd FileType python match Excess /\%120v.*/
-"    autocmd FileType python set nowrap
-"    augroup END
 
 " Make backspace work
 set backspace=indent,eol,start
@@ -82,7 +69,7 @@ au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set textwidth=90 |
 
-au BufNewFile,BufRead *.{js,jsx,html,css}
+au BufNewFile,BufRead *.{js,jsx,html,css,yml,yaml}
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
     \ set tabstop=2 |
@@ -163,17 +150,18 @@ set mouse=a
 " ]]            Jump on next class or function (normal, visual, operator modes)
 " [M            Jump on previous class or method (normal, visual, operator modes)
 " ]M            Jump on next class or method (normal, visual, operator modes)
-let g:pymode_rope = 0
+let g:pymode_rope = 1
 
 " Documentation
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 
 "Linting
-let g:pymode_lint = 0 
+let g:pymode_lint = 1
 let g:pymode_lint_checker = "pyflakes,pep8"
 " Auto check on save
 let g:pymode_lint_write = 1
+let g:pymode_options_max_line_length = 120
 
 " Support virtualenv
 let g:pymode_virtualenv = 1
@@ -181,6 +169,9 @@ let g:pymode_virtualenv = 1
 " Enable breakpoints plugin
 let g:pymode_breakpoint = 0
 let g:pymode_breakpoint_bind = '<leader>b'
+
+let g:pymode_rope_completion = 1
+let g:pymode_rope_complete_on_dot = 1
 
 " syntax highlighting
 let g:pymode_syntax = 0
@@ -207,3 +198,5 @@ noremap <Right> <NOP>
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+let @e='ofrom IPython import embed; embed()'
+set completeopt=menu
