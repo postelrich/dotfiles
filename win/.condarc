@@ -1,0 +1,6 @@
+channels:
+  - http://nj2repo01.jsi.jefco.com/conda/anaconda-free
+  - http://nj2repo01.jsi.jefco.com/conda/conda-forge
+ 
+show_channel_urls: true
+changeps1: false
