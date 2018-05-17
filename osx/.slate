@@ -21,3 +21,4 @@ bind 3:${hyper} ${righthalf}
 bind t:${hyper} focus 'iTerm2'
 bind b:${hyper} focus 'Google Chrome'
 bind f:${hyper} focus 'Flowdock'
+bind s:${hyper} focus 'Slack'

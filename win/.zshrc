@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/rpostelnik/.oh-my-zsh
+export ZSH=/home/rpostelnik/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -49,11 +49,10 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git common-aliases brew npm pip)
+plugins=(git common-aliases zsh-autosuggestions async) #fuzzy-search)
 
 # User configuration
 
-export PATH="/Users/rpostelnik/anaconda3/bin:/Users/rpostelnik/q/m32:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export EDITOR="vim"
 source $ZSH/oh-my-zsh.sh
 
@@ -82,22 +81,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias on="source activate"
-alias off="source deactivate"
-alias vim="nvim"
+export PATH="/cygdrive/c/Users/rpostelnik/AppData/Local/Continuum/miniconda3/Scripts:$PATH"
+alias on="conda activate"
+alias off="conda deactivate"
 alias ll="ls -al"
-eval "$(thefuck --alias)"
-
-altcd () {
-    last=${@: -1}
-    dir=`echo $last | rev | cut -d\/ -f1 | rev`
-    out=
-    [[ -z $dir ]] && dir=`echo $last | rev | cut -d\/ -f2 | rev`
-    [[ ! -z $dir ]] && out="next time try: z ${dir}"
-    cd $@ &&  echo $out
-}
-alias cd="altcd"
+alias git-prune="git branch --merged master | grep -v '^ *master$' | xargs git branch -d"
 
 . ~/z.sh
-. ~/anaconda3/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
-. ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#. ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+. /cygdrive/c/Users/rpostelnik/AppData/Local/Continuum/miniconda3/etc/profile.d/conda.sh
+source /home/rpostelnik/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+conda activate

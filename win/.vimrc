@@ -2,36 +2,35 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+call plug#begin('~/.vim/plugged')
+" let g:python_host_prog = '/Users/cpp974/miniconda2/bin/python'
+" let g:python3_host_prog = '/Users/cpp974/miniconda2/bin/python'
+" " alternatively, pass a path where Vundle should install plugins
+" "call vundle#begin('~/some/path/here')
+" 
+" " let Vundle manage Vundle, required
+" "Plugin 'VundleVim/Vundle.vim'
+" 
+" " The following are examples of different formats supported.
+" " Keep Plugin commands between vundle#begin/end.
+" " plugin on GitHub repo
+Plug 'gmarik/vundle'
+Plug 'klen/python-mode'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ap/vim-buftabline'
+Plug 'tpope/vim-surround'
+Plug 'flazz/vim-colorschemes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'haya14busa/incsearch.vim'
 
-" let Vundle manage Vundle, required
-"Plugin 'VundleVim/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Bundle 'gmarik/vundle'
-"Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Bundle 'itchyny/lightline.vim'
-Bundle 'klen/python-mode'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'ap/vim-buftabline'
-Bundle 'tpope/vim-surround'
-"Bundle 'terryma/vim-multiple-cursors'
-Bundle 'haya14busa/incsearch.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'blueshirts/darcula'
-" Bundle 'vim-scripts/indentpython.vim'
-" Bundle 'sheerun/vim-polyglot'
-
+call plug#end()
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+" call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -45,20 +44,13 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" Highlight character past column
-"augroup vimrc_autocmds
-"    autocmd!
-"    " highlight characters past column 120
-"    autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
-"    autocmd FileType python match Excess /\%120v.*/
-"    autocmd FileType python set nowrap
-"    augroup END
-
 " Make backspace work
 set backspace=indent,eol,start
 
 " Required for Powerline
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline
+let g:airline_powerline_fonts=1
+let g:airline_theme='bubblegum'
 set laststatus=2
 
 " Toggle NerdTree
@@ -70,22 +62,23 @@ set autoindent
 set shiftwidth=4
 set tabstop=4
 set expandtab
+set showcmd
+set encoding=utf-8
 
 au BufNewFile,BufRead *.py
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
     \ set tabstop=4 |
     \ set textwidth=90 |
-    "\ set encoding=utf-8 |
 
-au BufNewFile,BufRead *.{js,jsx,html,css}
+au BufNewFile,BufRead *.{js,jsx,html,css,yml,yaml}
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
     \ set tabstop=2 |
 
 " Syntax highlighting
 syntax on
-colorscheme darcula
+" colorscheme candypaper
 set number
 nmap <C-l> :set number!<CR>
 set hlsearch
@@ -94,6 +87,7 @@ noremap ;; ;
 nnoremap <S-tab> :tabprevious<CR>
 nnoremap <tab> :tabnext<CR>
 nnoremap <C-t> :tabnew<CR>
+nnoremap <leader>tl ^c0<bs> <Esc>
 set cursorline
 highlight CursorColumn ctermbg=black
 highlight CursorLineNr ctermfg=white ctermbg=darkred
@@ -104,10 +98,6 @@ nnoremap <silent> j gj
 nnoremap <silent> k gk
 vnoremap <silent> j gj
 vnoremap <silent> k gk
-
-" Minimal number of screen lines to keep above and below the cursor.
-" This keeps the cursor always in the vertical middle of the screen.
-set scrolloff=999
 
 " Ignore case while searching
 set ignorecase
@@ -156,7 +146,7 @@ set mouse=a
 " <Ctrl-Space>  Rope autocomplete
 " <Ctrl-c>g     Rope goto definition
 " <Ctrl-c>d     Rope show documentation
-" <Ctrl-c>f     Rope find occurrences
+" <Ctrl-c>f     Rope find occurrencee
 " <Leader>b     Set, unset breakpoint (g:pymode_breakpoint enabled)
 " [[            Jump on previous class or function (normal, visual, operator modes)
 " ]]            Jump on next class or function (normal, visual, operator modes)
@@ -169,10 +159,11 @@ let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 
 "Linting
-let g:pymode_lint = 0 
+let g:pymode_lint = 1
 let g:pymode_lint_checker = "pyflakes,pep8"
 " Auto check on save
 let g:pymode_lint_write = 1
+let g:pymode_options_max_line_length = 120
 
 " Support virtualenv
 let g:pymode_virtualenv = 1
@@ -180,6 +171,9 @@ let g:pymode_virtualenv = 1
 " Enable breakpoints plugin
 let g:pymode_breakpoint = 0
 let g:pymode_breakpoint_bind = '<leader>b'
+
+let g:pymode_rope_completion = 1
+let g:pymode_rope_complete_on_dot = 1
 
 " syntax highlighting
 let g:pymode_syntax = 0
@@ -194,6 +188,10 @@ let NERDTreeIgnore = ['\.pyc$']
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(pyc|so|swp)$'
+  \ }
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -202,4 +200,14 @@ noremap <Right> <NOP>
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
-nmap <F3> :TagbarToggle<CR>
+let @e='ofrom IPython import embed; embed()'
+set completeopt=menu
+if !has("gui_running")
+    set term=xterm
+    set mouse=a
+    set nocompatible
+    inoremap <Esc>[62~ <C-X><C-E>
+    inoremap <Esc>[63~ <C-X><C-Y>
+    nnoremap <Esc>[62~ <C-E>
+    nnoremap <Esc>[63~ <C-Y>
+endif
