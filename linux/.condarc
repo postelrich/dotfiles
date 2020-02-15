@@ -1,0 +1,8 @@
+changeps1: false
+channel_alias: http://anaconda.cloud.capitalone.com/conda
+channels:
+  - creditflow
+  - bokeh
+  - conda-forge
+  - blaze
+  - defaults

@@ -5,4 +5,4 @@ channels:
     - data-portal/channel/dev
     - defaults
 
-changeps1: False
+changeps1: True
