@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/rpostelnik/.oh-my-zsh"
+export ZSH="/home/rich/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -155,14 +155,16 @@ bindkey '^[[F' end-of-line
 #alias tmux='TERM=xterm-256color tmux'
 
 
+alias python='python3'
 alias git-dot='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-export PATH="/home/postelrich/bin:$PATH"
+export PATH="/home/rich/bin:/home/rich/.local/bin:$PATH"
 
 # NVM
-# export NVM_DIR=~/.nvm
-# source ~/.nvm/nvm.sh
-# nvm use 16
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+nvm use 18
 
+ 
 
 function zhead() {
     zcat $1 | head

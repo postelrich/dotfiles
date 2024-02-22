@@ -33,6 +33,7 @@ Plug 'ggandor/lightspeed.nvim' " Motion
 Plug 'ckipp01/nvim-jenkinsfile-linter'
 Plug 'ruifm/gitlinker.nvim'
 Plug 'gcmt/taboo.vim' " used for renaming ssh tabs
+Plug 'jamestthompson3/nvim-remote-containers'
 
 " pop up fuzzy finder
 Plug 'nvim-lua/plenary.nvim' " lua functions
@@ -53,7 +54,7 @@ call plug#end()
 
 filetype plugin indent on
 
-let g:python3_host_prog = "/PATH/TO/Python-3.10/bin/python3.10"
+let g:python3_host_prog = "/usr/bin/python3.10"
 
 "set t_Co=256
 if has('termguicolors')
